@@ -7,7 +7,7 @@ By @altmannmarcelo & @vgrippa
 To start the tutorial container, type:
 
 ```
-docker run -d -t -i --privileged --name percona_live pxb_pl:latest
+docker run -d -t -i --privileged --name percona_live altmannmarcelo/pxb_pl:latest
 ```
 
 Validate you see `Everything is up and running.` on docker logs:
