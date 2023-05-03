@@ -1,19 +1,10 @@
 # Percona Xtrabackup: From Zero to Hero
-Percona Live Denver 2023 Tutorial - Percona Xtrabackup: From Zero to Hero
-By @altmannmarcelo & @vgrippa
+![Percona Live Denver 2023 Tutoria - Percona Xtrabackup: From Zero to Hero](img/speaker_card.jpg)
 
+# Tutorial
+Complete the tutorial by following the commands from [Tutorial Steps](assets/tutorial.pdf)
 
-# Starting container
-To start the tutorial container, type:
+# Slides
+You can view the slides in pdf format [here](assets/slides.pdf)
 
-```
-docker run -d -t -i --privileged --name percona_live altmannmarcelo/pxb_pl:latest
-```
-
-Validate you see `Everything is up and running.` on docker logs:
-
-```
-docker logs -n 1 percona_live
-Everything is up and running.
-```
 
