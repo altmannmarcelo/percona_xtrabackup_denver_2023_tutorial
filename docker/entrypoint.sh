@@ -14,6 +14,23 @@ function wait_mysql_start {
   return 1
 }
 
+# Start MinIO
+MINIO_ROOT_USER=admin MINIO_ROOT_PASSWORD=password minio server /mnt/data --address ":9090" --console-address ":9091" &
+mkdir ~/.aws/
+cat <<EOF > ~/.aws/credentials
+[default]
+aws_access_key_id = admin
+aws_secret_access_key = password
+EOF
+
+cat <<EOF > ~/.aws/config
+[default]
+region = us-east-1
+EOF
+aws configure set default.s3.signature_version s3v4
+aws --endpoint-url http://127.0.0.1:9090 s3 mb s3://perconalive
+
+
 # Start MySQL
 mysqld &
 
