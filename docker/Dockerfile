@@ -2,7 +2,7 @@
 FROM ubuntu:jammy
 
 RUN apt update && \
-    DEBIAN_FRONTEND=noninteractive apt -y install apt-utils curl libicu70 libdbd-mysql-perl libcurl4-openssl-dev rsync libev4 zstd
+    DEBIAN_FRONTEND=noninteractive apt -y install apt-utils curl libicu70 libdbd-mysql-perl libcurl4-openssl-dev rsync libev4 zstd less vim
 
 # Install Percona Server
 RUN curl -fsSL https://raw.githubusercontent.com/Percona-Lab/single_install/main/install_percona | \
@@ -35,6 +35,10 @@ RUN chmod +x /bin/entrypoint.sh
 COPY run_load.sh /bin/run_load.sh
 
 RUN chmod +x /bin/run_load.sh
+
+COPY incident.sh /bin/incident.sh
+
+RUN chmod +x /bin/incident.sh
 
 COPY xbstream_viewer.sh /bin/xbstream_viewer.sh
 
