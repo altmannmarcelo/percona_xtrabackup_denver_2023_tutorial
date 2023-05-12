@@ -7,6 +7,10 @@ THREADS=2
 MYSQL_USER=root
 MYSQL_PASSWORD=
 
+function cleanup() {
+  mysql -e "DROP DATABASE IF EXISTS sbtest"
+}
+
 function prepare()
 {
   mysql -e "CREATE DATABASE IF NOT EXISTS sbtest"
@@ -32,6 +36,9 @@ if [[ $# -ne 0 ]] ; then
     exit 0
   elif [[ "${MODE}" == "run" ]]; then
     run_load
+    exit 0
+  elif [[ "${MODE}" == "cleanup" ]]; then
+    cleanup
     exit 0
   fi
 fi
